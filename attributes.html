@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>InfiniteMarquee — Attributes</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0f1720;color:#e6eef8;padding:28px}
+    table{width:100%;border-collapse:collapse;margin-top:18px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);text-align:left}
+    th{background:#081226;color:#9cc6ff}
+    tr:hover{background:rgba(255,255,255,0.02);cursor:pointer}
+    .snippet{background:#081226;padding:6px 10px;border-radius:6px;font-family:monospace;display:inline-block}
+    .copied{color:#10b981;margin-left:8px;font-weight:600}
+    header{display:flex;gap:12px;align-items:center}
+    .info{color:#9aaecf}
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1 style="margin:0;font-size:20px">InfiniteMarquee — Attribute snippets</h1>
+      <div class="info">Click any row to copy the ready-to-paste attribute + value string for HTML.</div>
+    </div>
+  </header>
+
+  <table id="attrs">
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Example</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr data-snippet='data-marquee-speed="60"'>
+        <td><code>data-marquee-speed</code></td>
+        <td>number</td>
+        <td><span class="snippet">60</span></td>
+        <td>50</td>
+        <td>Movement speed in px/s.</td>
+      </tr>
+      <tr data-snippet='data-marquee-direction="right"'>
+        <td><code>data-marquee-direction</code></td>
+        <td>enum</td>
+        <td><span class="snippet">right</span></td>
+        <td>left</td>
+        <td>Scroll direction: left, right, up, down.</td>
+      </tr>
+      <tr data-snippet='data-marquee-gap="20"'>
+        <td><code>data-marquee-gap</code></td>
+        <td>number</td>
+        <td><span class="snippet">20</span></td>
+        <td>40</td>
+        <td>Gap between items (px).</td>
+      </tr>
+      <tr data-snippet='data-marquee-pause-on-hover="true"'>
+        <td><code>data-marquee-pause-on-hover</code></td>
+        <td>boolean</td>
+        <td><span class="snippet">true</span></td>
+        <td>true</td>
+        <td>Hovering pauses the animation.</td>
+      </tr>
+      <tr data-snippet='data-marquee-reverse-on-hover="true"'>
+        <td><code>data-marquee-reverse-on-hover</code></td>
+        <td>boolean</td>
+        <td><span class="snippet">true</span></td>
+        <td>false</td>
+        <td>Hovering reverses the scroll direction.</td>
+      </tr>
+      <tr data-snippet='data-marquee-drag="true"'>
+        <td><code>data-marquee-drag</code></td>
+        <td>boolean</td>
+        <td><span class="snippet">true</span></td>
+        <td>true</td>
+        <td>Enable drag-to-scroll (mouse/touch).</td>
+      </tr>
+      <tr data-snippet='data-marquee-fade="true"'>
+        <td><code>data-marquee-fade</code></td>
+        <td>boolean</td>
+        <td><span class="snippet">true</span></td>
+        <td>false</td>
+        <td>Apply fade mask to edges.</td>
+      </tr>
+      <tr data-snippet='data-marquee-fade-size="100"'>
+        <td><code>data-marquee-fade-size</code></td>
+        <td>number</td>
+        <td><span class="snippet">100</span></td>
+        <td>80</td>
+        <td>Fade mask size in px.</td>
+      </tr>
+      <tr data-snippet='data-marquee-slow-on-hover="true"'>
+        <td><code>data-marquee-slow-on-hover</code></td>
+        <td>boolean</td>
+        <td><span class="snippet">true</span></td>
+        <td>false</td>
+        <td>Slow animation while hovered (instead of pause).</td>
+      </tr>
+      <tr data-snippet='data-marquee-slow-speed="30"'>
+        <td><code>data-marquee-slow-speed</code></td>
+        <td>number</td>
+        <td><span class="snippet">30</span></td>
+        <td>15</td>
+        <td>Slow speed in px/s when `slow-on-hover` is enabled.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:18px">Include script (CDN): <code class="snippet">&lt;script src="https://cdn.jsdelivr.net/gh/ashfad0273/Infinite-Marquee@main/infinite-marquee.js"&gt;&lt;/script&gt;</code></div>
+
+  <script>
+    // copy snippet on row click
+    document.querySelectorAll('#attrs tbody tr').forEach(row => {
+      row.addEventListener('click', async () => {
+        const s = row.getAttribute('data-snippet');
+        try {
+          await navigator.clipboard.writeText(s);
+          // show transient feedback
+          const el = document.createElement('span');
+          el.className = 'copied';
+          el.textContent = 'Copied!';
+          row.querySelector('td:last-child').appendChild(el);
+          setTimeout(() => el.remove(), 1600);
+        } catch (err) {
+          alert('Copy failed — your browser may not allow clipboard access.\nSnippet: ' + s);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

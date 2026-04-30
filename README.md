@@ -72,6 +72,27 @@ All `data-marquee-*` attributes mirror the constructor options. Values are strin
 - `data-marquee-slow-on-hover` (boolean) — When `true`, the animation slows while hovered instead of pausing. Default: `false`.
 - `data-marquee-slow-speed` (number, px/s) — The slow speed used when `slow-on-hover` is enabled. Default: `15`.
 
+Attributes table (copy-ready)
+
+You can visit the interactive attributes demo to click and copy attribute snippets directly into your HTML: `attributes.html` (also published on GitHub Pages).
+
+| Attribute | Type | Example value | Default | Description |
+|---|---:|---|---:|---|
+| `data-marquee-speed` | number | `60` | `50` | Speed in px/s (higher = faster).
+| `data-marquee-direction` | enum | `right` | `left` | Scroll direction: `left`, `right`, `up`, `down`.
+| `data-marquee-gap` | number | `20` | `40` | Gap between items in px.
+| `data-marquee-pause-on-hover` | boolean | `true` | `true` | Hovering pauses the animation.
+| `data-marquee-reverse-on-hover` | boolean | `true` | `false` | Hovering reverses the scroll direction.
+| `data-marquee-drag` | boolean | `true` | `true` | Enable drag-to-scroll (mouse/touch).
+| `data-marquee-fade` | boolean | `true` | `false` | Apply fade mask to edges.
+| `data-marquee-fade-size` | number | `100` | `80` | Fade mask size in px.
+| `data-marquee-slow-on-hover` | boolean | `true` | `false` | Slow animation while hovered (instead of pause).
+| `data-marquee-slow-speed` | number | `30` | `15` | Slow speed in px/s when `slow-on-hover` is enabled.
+
+Interactive demo
+- Live interactive attributes demo: https://ashfad0273.github.io/Infinite-Marquee/attributes.html
+
+
 Programmatic API
 - Constructor: `new InfiniteMarquee(element, options)` — returns an instance.
 	- Options (same keys as attributes): `speed`, `direction`, `gap`, `pauseOnHover`, `reverseOnHover`, `drag`, `fade`, `fadeSize`, `slowOnHover`, `slowSpeed`.
